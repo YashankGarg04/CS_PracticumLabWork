@@ -20,4 +20,9 @@
 - ```piped text```: when we use ```cat``` to directly feed the file's content to ```wc``` to count lines, words and characters without opening it separately
 
 ### Linux and C
+- ```gcc lab.c```: Convert ```lab.c``` file into ```lab.o``` file which is an object when given to linker is then converted to an executable file ```a.out```
+- ```gcc lab.c -o my_program```: When you don't want the executable file to be as ```a.out``` we use ```-o``` to provide a custom name to the file
+- ```gcc -Wall```: Used to display all Compiler Warnings
+- ```gcc -g```: embeds extra debugging information about the code  
+
 
