@@ -23,6 +23,15 @@
 - ```gcc lab.c```: Convert ```lab.c``` file into ```lab.o``` file which is an object when given to linker is then converted to an executable file ```a.out```
 - ```gcc lab.c -o my_program```: When you don't want the executable file to be as ```a.out``` we use ```-o``` to provide a custom name to the file
 - ```gcc -Wall```: Used to display all Compiler Warnings
-- ```gcc -g```: embeds extra debugging information about the code  
+- ```gcc -g```: embeds extra debugging information about the code
+- ```gcc -O```: Optimizes the code to make it run faster
+
+#### Linking with Libraries
+- ```man```: this shell prompt gives out description about a particular function allows you to understand the use case in CPP and what are the libraries you need to include before using them in your function. for eg. if you want to use ```fork()``` in your program you may understand about it using ```man fork```
+
+### Statically-linked (.a) and Dynamically-linked Libraries (.so)
+
+
+
 
 
