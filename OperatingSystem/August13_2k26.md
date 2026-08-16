@@ -29,8 +29,28 @@
 #### Linking with Libraries
 - ```man```: this shell prompt gives out description about a particular function allows you to understand the use case in CPP and what are the libraries you need to include before using them in your function. for eg. if you want to use ```fork()``` in your program you may understand about it using ```man fork```
 
-### Statically-linked (.a) and Dynamically-linked Libraries (.so)
+#### Statically-linked (.a) and Dynamically-linked Libraries (.so)
+- Statically Linked Libraries are directly attached to your executable by linker, resulting in a longer binary object but at the same time less performance cost
+- whereas, Dynamically on the other hand improves on this by referencing to a program library in your executable when the program runs, the operating system loader dynamically links in the library but we have to pay some performance cost
+- To Link with some libraries for instance ```math``` library we need to invoke ```gcc``` with right flags, ```gcc -o lab lab.c -Wall -lm```, Now the flag could be anything like ```-lXXX```
+- ```-static``` this flag can be used to force static library
+- ```-I /path/to/header```: this is used to specify a custom header path as gcc won't be able to find them automatically
+- ```-L /path/to/library```: this is used to specify a custom library path as gcc won't be able to find them automatically
 
+#### Separate Compilation
+Once a program starts to get large enough, you may want to split it into separate files, compiling each separately, and then link them together
+```
+gcc -Wall -O -c hw.c
+gcc -Wall -O -c helper.c
+gcc -o hw hw.o helper.o -lm
+```
+- ```-c``` flag tells the compiler just to produce an object file
+- To combine the object files into an executable, you have to “link” them together
+- Of course, you could just specify all the C source files on a single line ```gcc -Wall -O -o hw hw.c helper.c```, but this requires the system to recompile every source-code file, which can be a time-consuming process.
+- By compiling each individually, you can save time by only recompiling those files that have changed during your editing, and thus increase your productivity
+- This process is best managed by another program, ```make```
+#### Makefiles
+The program ```make``` lets you automate much of your build process, and is thus a crucially important tool for any serious program
 
 
 
