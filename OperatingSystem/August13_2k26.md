@@ -25,6 +25,8 @@
 - ```gcc -Wall```: Used to display all Compiler Warnings
 - ```gcc -g```: embeds extra debugging information about the code
 - ```gcc -O```: Optimizes the code to make it run faster
+- ```gcc -c```: It Compiles and assembles the code, but stop before linking
+- ```gcc -S```: Tells GCC to compile the code into assembly language, but stop before assembling it into machine code
 
 #### Linking with Libraries
 - ```man```: this shell prompt gives out description about a particular function allows you to understand the use case in CPP and what are the libraries you need to include before using them in your function. for eg. if you want to use ```fork()``` in your program you may understand about it using ```man fork```
