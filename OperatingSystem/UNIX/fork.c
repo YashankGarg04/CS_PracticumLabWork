@@ -1,3 +1,7 @@
+/*
+This is a implementation of how fork works we must use gcc comiler to run this as running directly with windows will show error which
+alternatively requires WSL
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
