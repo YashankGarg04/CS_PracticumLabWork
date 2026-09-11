@@ -7,7 +7,7 @@
 #include <string.h>
 
 #define MAXLEN 100
-#define PORT 12345
+#define PORT 12351
 
 int main(int argc, char **argv)
 {
@@ -22,30 +22,33 @@ int main(int argc, char **argv)
 		exit(0);
 	}
 	/* create socket "s"*/
-	?????
+	s = socket(AF_INET, SOCK_STREAM, 0);
 	if(s<0)
 	{
 		perror("socket");
-		exit(0);
+		exit(1);
  	}
 	saddr.sin_family=AF_INET;
 
 	/*  supply port number in a format that the network can read */
-	saddr.sin_port= ???
+	saddr.sin_port= htons(PORT);
 
 	if(inet_pton(AF_INET,argv[1],&saddr.sin_addr)<=0)
 	{
 		printf("Error. Invalid IP address\n");
-		exit(0);
+		exit(1);
 	}
 	/* connect socket, if doesn't connect print error */	
-	???????
+	if(connect(s,(struct sockaddr *) &saddr, sizeof(saddr))<0){
+		perror("ERROR in connecting\n");
+		exit(1);
+	}
 
 	write(s,argv[2],strlen(argv[2]));
 	if((fp=fopen(argv[2],"r"))==NULL)
 	{
 		perror(argv[2]);
-		exit(0);
+		exit(1);
 	}
 
 	/* read acknowledgements */
@@ -56,11 +59,12 @@ int main(int argc, char **argv)
 		if(feof(fp))
 			break;
 		/* write contents of buff to the socket */
-		????
+		write(s, buff, strlen(buff));
 		/* read acknowledgement */
-		????
+		read(s, ACK, 2);
 	}
 	/* close file handle */
-	????
+	fclose(fp);
+    close(s);
 	/* close socket*/
 }

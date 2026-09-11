@@ -10,7 +10,7 @@
 void error(char *msg)
 {
     perror(msg);
-    exit(0);
+    exit(1);
 }
 
 int main(int argc, char *argv[])
@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     char buffer[256];
     if (argc < 3) {
        fprintf(stderr,"usage %s hostname port\n", argv[0]);
-       exit(0);
+       exit(1);
     }
 
     /* create socket, get sockfd handle */
