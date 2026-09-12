@@ -89,4 +89,10 @@ Now we will check for ```Elephant Flow```, in ```tab2``` again:
 sudo ip netns exec NetNsB sudo -u breadjam scp elephant.data breadjam@192.0.2.1:~/
 ```
 In Elephant flow we can see a lot of Transactions in Wireshark and it took a bit time to load also
-
+#### Optional Excersice
+```
+\\tab1
+sudo ip netns exec NetNsA python3 -m pyftpdlib -p 2121 -d ~/ &
+\\tab2
+sudo ip netns exec NetNsB sudo -u breadjam python3 control.py
+```

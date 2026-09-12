@@ -1,6 +1,6 @@
 import time, subprocess
 
-t_expt = 40
+t_expt = 10
 start_time = time.time()
 total_bytes = 0
 
